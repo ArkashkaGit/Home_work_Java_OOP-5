@@ -25,7 +25,8 @@ public class ControllerAttendanceGroup{
     public AttendanceGroup getAttendanceGroup() {return attendanceGroup;}
     public Student getStudent() {return student;}
     public AttendanceVisitStudent getAttendanceVisit() {return attendanceVisit;}
-
+    
+// Метод сортировки группы студентов по посещаемости
     public void PrintSortStudentsVisiting(StudentGroup studentGroup) {
         List<String> sortListStudent = new ArrayList<>();
         for (AttendanceVisitStudent attendanceVisit : attendanceGroup.getAttendanceView()) {
@@ -46,7 +47,7 @@ public class ControllerAttendanceGroup{
            System.out.println(sortListStudent.get(i));
         }
     }
-
+// Метод выводящий список людей из группы с посещаемостью ниже 25%
     public void PrintStudentsVisitingLess25Persent(StudentGroup studentGroup) {
         for (AttendanceVisitStudent attendanceVisit : attendanceGroup.getAttendanceView()) {
             int count = 0;
@@ -62,7 +63,7 @@ public class ControllerAttendanceGroup{
             }
         }
     }
-
+// Метод показывающий в процентах посещение студентов группы
     public void PrintStudentsVisitingPercent(StudentGroup studentGroup) {
         for (AttendanceVisitStudent attendanceVisit : attendanceGroup.getAttendanceView()) {
             int count = 0;

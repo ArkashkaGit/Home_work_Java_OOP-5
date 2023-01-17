@@ -11,7 +11,7 @@ public class Presenter {
         this.view = view;
         this.model = model;
     }
-
+// создание кнопки для вывода всех команд в задании
     public void button_start_all_command (){
         view.PrintStudentsVisitingPercent(model);
         view.PrintStudentsVisitingLess25Persent(model);

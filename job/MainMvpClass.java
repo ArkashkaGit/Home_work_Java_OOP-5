@@ -9,24 +9,24 @@ import job.view.controller.*;
 public class MainMvpClass {
 
     public static void main(String[] args) {
-        // Создание объектов студентов
+// Создание объектов студентов
         Student Jon = new Student("Jon", 1);
         Student Sara = new Student("Sara", 1);
         Student Bill = new Student("Bill", 1);
-        // Создание объекта группы студентов
+// Создание объекта группы студентов
         StudentGroup studentGroupOneCourse = new StudentGroup();
-        // Добавление студентов в группу студентов
+// Добавление студентов в группу студентов
         studentGroupOneCourse.addStudentInGroup(Jon);
         studentGroupOneCourse.addStudentInGroup(Sara);
         studentGroupOneCourse.addStudentInGroup(Bill);
         // System.out.println(studentGroupOneCourse);
 
 
-        // Создание объекта о посищении студентов
+// Создание объекта о посищении студентов
         AttendanceVisitStudent attendanceVisitingJon = new AttendanceVisitStudent(Jon);
         AttendanceVisitStudent attendanceVisitingSara = new AttendanceVisitStudent(Sara);
         AttendanceVisitStudent attendanceVisitingBill = new AttendanceVisitStudent(Bill);
-        // список посищений студентов
+// список посищений студентов
         attendanceVisitingSara.addVisiting("01-01-2023", true);
         attendanceVisitingSara.addVisiting("02-01-2023", true);
         attendanceVisitingSara.addVisiting("03-01-2023", true);
@@ -50,18 +50,21 @@ public class MainMvpClass {
         attendanceVisitingJon.addVisiting("05-01-2023", true);
         attendanceVisitingJon.addVisiting("06-01-2023", false);
         attendanceVisitingJon.addVisiting("07-01-2023", true);
-        // Спсиок группы студентов и их посещаемость
+// Создание объекта посещаемости группы
         AttendanceGroup attendanceGroupOneCourse = new AttendanceGroup();
+// Добавление в группу посещаемости, студентов с их посещаемостью
         attendanceGroupOneCourse.addAttendanceVisit(attendanceVisitingJon);
         attendanceGroupOneCourse.addAttendanceVisit(attendanceVisitingBill);
         attendanceGroupOneCourse.addAttendanceVisit(attendanceVisitingSara);
-        // Создание объекта контроллера посищения группы 
+// Создание объекта контроллера посищения группы 
         ControllerAttendanceGroup controllerGroup = new ControllerAttendanceGroup(attendanceGroupOneCourse);
         
+// Работа методов объекта контроллера
         // controllerGroup.PrintStudentsVisitingPercent(studentGroupOneCourse);
         // controllerGroup.PrintStudentsVisitingLess25Persent(studentGroupOneCourse);
         // controllerGroup.PrintSortStudentsVisiting(studentGroupOneCourse);
 
+// Работа Presenter одна кнопка для всех команд
         Presenter presenter = new Presenter(controllerGroup, studentGroupOneCourse);
         presenter.button_start_all_command();
     }
