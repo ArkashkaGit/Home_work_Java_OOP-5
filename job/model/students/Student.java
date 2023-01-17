@@ -1,6 +1,6 @@
-package job.model;
+package job.model.students;
 
-public class Student extends StudentAbstract{
+public class Student{
     private String name;
     private int course;
     

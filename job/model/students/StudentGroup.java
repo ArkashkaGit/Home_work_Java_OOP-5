@@ -1,4 +1,4 @@
-package job.model;
+package job.model.students;
 
 import java.util.ArrayList;
 import java.util.List;

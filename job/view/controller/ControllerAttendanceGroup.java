@@ -1,34 +1,34 @@
 package job.view.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
-import job.model.Student;
-import job.model.StudentGroup;
-import job.view.attandance.AttendanceGroup;
-import job.view.attandance.AttendanceVisit;
+import job.model.attandance.AttendanceGroup;
+import job.model.attandance.AttendanceVisitStudent;
+import job.model.students.Student;
+import job.model.students.StudentGroup;
 
-public class ControllerAttendanceGroup extends ControllerAbstract {
+public class ControllerAttendanceGroup{
 
     AttendanceGroup attendanceGroup;
     Student student;
-    AttendanceVisit attendanceVisit;
+    AttendanceVisitStudent attendanceVisit;
     Map <String, Integer> sortedStudentVisit;
 
     public ControllerAttendanceGroup(AttendanceGroup attendanceGroup) {
         this.attendanceGroup = attendanceGroup;
-        this.sortedStudentVisit = new HashMap<>();
+        this.sortedStudentVisit = new TreeMap<>();
     }
 
     public AttendanceGroup getAttendanceGroup() {return attendanceGroup;}
     public Student getStudent() {return student;}
-    public AttendanceVisit getAttendanceVisit() {return attendanceVisit;}
+    public AttendanceVisitStudent getAttendanceVisit() {return attendanceVisit;}
 
     public void PrintSortStudentsVisiting(StudentGroup studentGroup) {
         List<String> sortListStudent = new ArrayList<>();
-        for (AttendanceVisit attendanceVisit : attendanceGroup.getAttendanceView()) {
+        for (AttendanceVisitStudent attendanceVisit : attendanceGroup.getAttendanceView()) {
             int countTrue = 0;
             for (Boolean boolean1 : attendanceVisit.getVisit().values()) {
                 if (boolean1 == true) {
@@ -48,7 +48,7 @@ public class ControllerAttendanceGroup extends ControllerAbstract {
     }
 
     public void PrintStudentsVisitingLess25Persent(StudentGroup studentGroup) {
-        for (AttendanceVisit attendanceVisit : attendanceGroup.getAttendanceView()) {
+        for (AttendanceVisitStudent attendanceVisit : attendanceGroup.getAttendanceView()) {
             int count = 0;
             int countTrue = 0;
             for (Boolean boolean1 : attendanceVisit.getVisit().values()) {
@@ -64,7 +64,7 @@ public class ControllerAttendanceGroup extends ControllerAbstract {
     }
 
     public void PrintStudentsVisitingPercent(StudentGroup studentGroup) {
-        for (AttendanceVisit attendanceVisit : attendanceGroup.getAttendanceView()) {
+        for (AttendanceVisitStudent attendanceVisit : attendanceGroup.getAttendanceView()) {
             int count = 0;
             int countTrue = 0;
             for (Boolean boolean1 : attendanceVisit.getVisit().values()) {

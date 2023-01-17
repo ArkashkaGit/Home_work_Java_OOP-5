@@ -1,17 +1,17 @@
-package job.view.attandance;
+package job.model.attandance;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AttendanceGroup {
 
-    private List<AttendanceVisit> attendanceVisit = new ArrayList<>();
+    private List<AttendanceVisitStudent> attendanceVisit = new ArrayList<>();
 
-    public List<AttendanceVisit> getAttendanceView() {
+    public List<AttendanceVisitStudent> getAttendanceView() {
         return attendanceVisit;
     }
 
-    public void addAttendanceVisit (AttendanceVisit attendanceStudent){
+    public void addAttendanceVisit (AttendanceVisitStudent attendanceStudent){
         attendanceVisit.add(attendanceStudent);
     }
 

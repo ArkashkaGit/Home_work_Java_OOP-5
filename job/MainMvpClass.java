@@ -1,8 +1,9 @@
 package job;
-import job.model.Student;
-import job.model.StudentGroup;
-import job.view.attandance.AttendanceGroup;
-import job.view.attandance.AttendanceVisit;
+import job.model.attandance.AttendanceGroup;
+import job.model.attandance.AttendanceVisitStudent;
+import job.model.students.Student;
+import job.model.students.StudentGroup;
+import job.presenter.Presenter;
 import job.view.controller.*;
 
 public class MainMvpClass {
@@ -22,9 +23,9 @@ public class MainMvpClass {
 
 
         // Создание объекта о посищении студентов
-        AttendanceVisit attendanceVisitingJon = new AttendanceVisit(Jon);
-        AttendanceVisit attendanceVisitingSara = new AttendanceVisit(Sara);
-        AttendanceVisit attendanceVisitingBill = new AttendanceVisit(Bill);
+        AttendanceVisitStudent attendanceVisitingJon = new AttendanceVisitStudent(Jon);
+        AttendanceVisitStudent attendanceVisitingSara = new AttendanceVisitStudent(Sara);
+        AttendanceVisitStudent attendanceVisitingBill = new AttendanceVisitStudent(Bill);
         // список посищений студентов
         attendanceVisitingSara.addVisiting("01-01-2023", true);
         attendanceVisitingSara.addVisiting("02-01-2023", true);
@@ -57,8 +58,11 @@ public class MainMvpClass {
         // Создание объекта контроллера посищения группы 
         ControllerAttendanceGroup controllerGroup = new ControllerAttendanceGroup(attendanceGroupOneCourse);
         
-        controllerGroup.PrintStudentsVisitingPercent(studentGroupOneCourse);
-        controllerGroup.PrintStudentsVisitingLess25Persent(studentGroupOneCourse);
-        controllerGroup.PrintSortStudentsVisiting(studentGroupOneCourse);
+        // controllerGroup.PrintStudentsVisitingPercent(studentGroupOneCourse);
+        // controllerGroup.PrintStudentsVisitingLess25Persent(studentGroupOneCourse);
+        // controllerGroup.PrintSortStudentsVisiting(studentGroupOneCourse);
+
+        Presenter presenter = new Presenter(controllerGroup, studentGroupOneCourse);
+        presenter.button_start_all_command();
     }
 }

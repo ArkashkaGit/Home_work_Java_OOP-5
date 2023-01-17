@@ -1,15 +1,16 @@
-package job.view.attandance;
+package job.model.attandance;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import job.model.Student;
 
-public class AttendanceVisit extends AttendanceAbstract {
+import job.model.students.Student;
+
+public class AttendanceVisitStudent{
     private Student student;
     private Map<String,Boolean> visit;
     
 
-    public AttendanceVisit(Student student) {
+    public AttendanceVisitStudent(Student student) {
         this.student = student;
         this.visit = new LinkedHashMap<>();
     }
